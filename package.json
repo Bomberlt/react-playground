@@ -23,9 +23,7 @@
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
-		"build-ts": "tsc",
-		"postinstall": "npm run build-ts",
-		"heroku-start": "node build/index.js"
+		"postinstall": "npm install -g serve"
 	},
 	"browserslist": [
 		">0.2%",
