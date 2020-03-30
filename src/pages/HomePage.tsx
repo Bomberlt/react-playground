@@ -4,6 +4,7 @@ import * as React from "react";
 import { useSelector } from "react-redux";
 import { HomeBox } from "../components";
 import { RootState } from "../reducers";
+import { FirebaseContext } from "../components/Firebase";
 
 export function HomePage() {
 	const classes = useStyles();
@@ -18,6 +19,11 @@ export function HomePage() {
 			<Typography variant="h4" gutterBottom>
 				You have {todoList.length} TODOs in your list!
 			</Typography>
+			<FirebaseContext.Consumer>
+				{() => {
+					return <div>I've access to Firebase</div>;
+				}}
+			</FirebaseContext.Consumer>
 			<div className={classes.centerContainer}>
 				<HomeBox size={300} color={boxColor} />
 				<Button
