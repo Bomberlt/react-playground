@@ -5,10 +5,11 @@ export interface Todo {
 }
 
 export enum TodoActions {
-  ADD_TODO = "ADD_TODO",
-  DELETE_TODO = "DELETE_TODO",
-  COMPLETE_TODO = "COMPLETE_TODO",
-  UNCOMPLETE_TODO = "UNCOMPLETE_TODO",
+	ADD_TODO = "ADD_TODO",
+	DELETE_TODO = "DELETE_TODO",
+	COMPLETE_TODO = "COMPLETE_TODO",
+	UNCOMPLETE_TODO = "UNCOMPLETE_TODO",
+	TODOS_LOADED = "TODOS_LOADED",
 }
 
 interface TodoActionType<T, P> {
@@ -21,4 +22,5 @@ export type TodoAction =
   | TodoActionType<typeof TodoActions.COMPLETE_TODO, number>
   | TodoActionType<typeof TodoActions.UNCOMPLETE_TODO, number>
   | TodoActionType<typeof TodoActions.DELETE_TODO, number>
+  | TodoActionType<typeof TodoActions.TODOS_LOADED, number>
 ;

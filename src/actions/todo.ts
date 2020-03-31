@@ -2,11 +2,15 @@ import { TodoAction, TodoActions, Todo } from "../model";
 import { todosRef } from "../components/Firebase/firebase";
 
 export function addTodo(todo: Todo) {
-  todosRef.push().set(todo);
-	return (dispatch: Function, getState: Function) => {
-		dispatch({ type: TodoActions.ADD_TODO, payload: todo });
+	return function(dispatch: any) {
+		return todosRef.push().set(todo).then(
+			() => dispatch({
+				type: TodoActions.ADD_TODO,
+				payload: todo,
+			})
+		);
 	};
-}
+};
 
 // Async Function expample with redux-thunk
 export function completeTodo(todoId: number) {
@@ -30,3 +34,12 @@ export function deleteTodo(todoId: number): TodoAction {
 		payload: todoId,
 	};
 }
+
+export const fetchToDos = () => async (dispatch: Function) => {
+  todosRef.on("value", snapshot => {
+    dispatch({
+      type: TodoActions.TODOS_LOADED,
+      payload: snapshot.val()
+    });
+  });
+};

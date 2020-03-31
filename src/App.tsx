@@ -13,6 +13,8 @@ import { Todo } from "./model";
 import { HomePage, TodoPage } from "./pages";
 import { RootState } from "./reducers/index";
 import { withRoot } from "./withRoot";
+import { useActions } from "./actions";
+import * as TodoActions from "./actions/todo";
 
 function Routes() {
 	const classes = useStyles();
@@ -65,6 +67,8 @@ function App() {
 	const handleDrawerToggle = () => {
 		setMobileOpen(!mobileOpen);
 	};
+	const todoActions = useActions(TodoActions);
+	React.useEffect(() => todoActions.fetchToDos(), []);
 
 	return (
 		<Router history={history}>
