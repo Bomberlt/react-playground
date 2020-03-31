@@ -15,6 +15,7 @@ import { RootState } from "./reducers/index";
 import { withRoot } from "./withRoot";
 import { useActions } from "./actions";
 import * as TodoActions from "./actions/todoActions";
+import { todoItemsSelector } from "./selectors/todoSelectors";
 
 function Routes() {
 	const classes = useStyles();
@@ -30,7 +31,7 @@ function Routes() {
 
 function Drawer() {
 	const classes = useStyles();
-	const todoList = useSelector((state: RootState) => state.todoList);
+	const todoList = useSelector(todoItemsSelector);
 
 	return (
 		<div>
