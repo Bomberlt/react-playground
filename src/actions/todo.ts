@@ -1,9 +1,10 @@
 import { TodoAction, TodoActions, Todo } from "../model";
+import { todosRef } from "../components/Firebase/firebase";
 
-export function addTodo(todo: Todo): TodoAction {
-	return {
-		type: TodoActions.ADD_TODO,
-		payload: todo,
+export function addTodo(todo: Todo) {
+  todosRef.push().set(todo);
+	return (dispatch: Function, getState: Function) => {
+		dispatch({ type: TodoActions.ADD_TODO, payload: todo });
 	};
 }
 

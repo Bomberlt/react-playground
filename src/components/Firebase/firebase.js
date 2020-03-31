@@ -1,4 +1,5 @@
-import app from 'firebase/app';
+import firebase from 'firebase/app';
+import 'firebase/database';
 
 const config = {
     apiKey: process.env.REACT_APP_API_KEY,
@@ -11,9 +12,9 @@ const config = {
     measurementId: process.env.REACT_APP_MEASUREMENT_ID
 };
 
-class Firebase {
-  constructor() {
-    app.initializeApp(config);
-  }
-}
+const Firebase = firebase.initializeApp(config);
+
+const databaseRef = Firebase.database().ref();
+export const todosRef = databaseRef.child("todos")
+
 export default Firebase;

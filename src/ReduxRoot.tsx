@@ -10,7 +10,7 @@ const { persistor, store } = configureStore();
 
 export function ReduxRoot() {
 	return (
-		<FirebaseContext.Provider value={new Firebase()}>
+		<FirebaseContext.Provider value={Firebase}>
 			<Provider store={store}>
 				<PersistGate
 					loading={<Typography>Loading...</Typography>}

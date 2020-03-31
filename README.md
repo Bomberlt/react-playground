@@ -11,6 +11,12 @@ npm i
 npm start
 ```
 
+## TODO:
+
+- Add Firebase Authentication https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial#react-router-for-firebase-auth
+- ADD Firebase Database https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial#firebase-realtime-database-in-react
+- Firebase redux https://blog.bitsrc.io/building-a-todo-app-in-react-with-firebase-and-redux-ba3ab53a671b
+
 ## Enable PWA ServiceWorker [OPTIONAL]
 
 Just comment in the following line in the `index.tsx`:
