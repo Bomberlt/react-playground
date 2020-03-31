@@ -7,11 +7,11 @@ import { useSelector } from "react-redux";
 import { useActions } from "../actions";
 import * as TodoActions from "../actions/todoActions";
 import { Todo } from "../model";
-import { RootState } from "../reducers";
+import { todoItemsSelector } from "../selectors/todoSelectors";
 
 export function TodoTable() {
 	const classes = useStyles();
-	const todoList = useSelector((state: RootState) => state.todoList);
+	const todoList = useSelector(todoItemsSelector);
 	const todoActions = useActions(TodoActions);
 
 	const onRowClick = (todo: Todo) => {

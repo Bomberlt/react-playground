@@ -5,11 +5,12 @@ import { useSelector } from "react-redux";
 import { HomeBox } from "../components";
 import { RootState } from "../reducers";
 import { FirebaseContext } from "../components/Firebase";
+import { todoItemsSelector } from "../selectors/todoSelectors";
 
 export function HomePage() {
 	const classes = useStyles();
 	const [boxColor, setBoxColor] = React.useState("red");
-	const todoList = useSelector((state: RootState) => state.todoList);
+	const todoList = useSelector(todoItemsSelector);
 
 	const onButtonClick = () =>
 		setBoxColor(boxColor === "red" ? "blue" : "red");
