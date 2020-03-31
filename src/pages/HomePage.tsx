@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/styles";
 import * as React from "react";
 import { useSelector } from "react-redux";
 import { HomeBox } from "../components";
-import { RootState } from "../reducers";
 import { FirebaseContext } from "../components/Firebase";
 import { todoItemsSelector } from "../selectors/todoSelectors";
 

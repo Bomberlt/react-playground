@@ -11,7 +11,6 @@ import { Route, Router } from "react-router-dom";
 import { history } from "./configureStore";
 import { Todo } from "./model";
 import { HomePage, TodoPage } from "./pages";
-import { RootState } from "./reducers/index";
 import { withRoot } from "./withRoot";
 import { useActions } from "./actions";
 import * as TodoActions from "./actions/todoActions";
