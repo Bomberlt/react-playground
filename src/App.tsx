@@ -14,7 +14,7 @@ import { HomePage, TodoPage } from "./pages";
 import { RootState } from "./reducers/index";
 import { withRoot } from "./withRoot";
 import { useActions } from "./actions";
-import * as TodoActions from "./actions/todo";
+import * as TodoActions from "./actions/todoActions";
 
 function Routes() {
 	const classes = useStyles();
@@ -28,8 +28,9 @@ function Routes() {
 	);
 }
 
-function Drawer(props: { todoList: Todo[] }) {
+function Drawer() {
 	const classes = useStyles();
+	const todoList = useSelector((state: RootState) => state.todoList);
 
 	return (
 		<div>
@@ -47,7 +48,7 @@ function Drawer(props: { todoList: Todo[] }) {
 			<List>
 				<ListItem button onClick={() => history.push("/todo")}>
 					<ListItemIcon>
-						<TodoIcon todoList={props.todoList} />
+						<TodoIcon todoList={todoList} />
 					</ListItemIcon>
 					<ListItemText primary="Todo" />
 				</ListItem>
@@ -59,7 +60,6 @@ function Drawer(props: { todoList: Todo[] }) {
 function App() {
 	const classes = useStyles();
 	const [mobileOpen, setMobileOpen] = React.useState(true);
-	const todoList = useSelector((state: RootState) => state.todoList);
 	const isMobile = useMediaQuery((theme: Theme) =>
 		theme.breakpoints.down("sm")
 	);
@@ -106,7 +106,7 @@ function App() {
 								keepMounted: true, // Better open performance on mobile.
 							}}
 						>
-							<Drawer todoList={todoList} />
+							<Drawer/>
 						</DrawerMui>
 					</Hidden>
 					<Hidden smDown>
@@ -117,7 +117,7 @@ function App() {
 								paper: classes.drawerPaper,
 							}}
 						>
-							<Drawer todoList={todoList} />
+							<Drawer/>
 						</DrawerMui>
 					</Hidden>
 					<Routes />
